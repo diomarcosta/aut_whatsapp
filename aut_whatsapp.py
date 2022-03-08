@@ -1,5 +1,5 @@
-from selenium import webdriver as wd
 import PySimpleGUI as sg
+import webbrowser as wb
 
 #define the layout
 layout = [[sg.Text('Iniciar conversa whatsapp')],
@@ -13,6 +13,4 @@ event, values = window.read()
 #close the window
 window.close()
 
-#get data and open the link
-driver = wd.Chrome(executable_path=r"caminho_do_crhome_driver\chromedriver.exe")
-driver.get("https://wa.me/5583" + str(values[0]))
+wb.open("https://wa.me/5583" + str(values[0]))
