@@ -3,7 +3,7 @@ import webbrowser as wb
 
 #define the layout
 layout = [[sg.Text('Iniciar conversa whatsapp')],
-            [sg.Text('Digite o número sem o código do país e DDD'), sg.InputText()],
+            [sg.Text('Digite o número sem o código do país, apenas com o DDD'), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')]]
 
 # Create the Window
