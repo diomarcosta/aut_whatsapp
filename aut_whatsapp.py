@@ -24,7 +24,10 @@ while True:
     elif values['-cod-'] == '' or values['-ddd-'] == '' or values['-num-'] == '':
         sg.popup('Please fill all the fields!')
     else:
-        wb.open("https://wa.me/" +
-                values['-cod-'] + values['-ddd-'] + values['-num-'])
+        if values['-cod-'].isdigit() and values['-ddd-'].isdigit() and values['-num-'].isdigit():
+            wb.open("https://wa.me/" +
+                    values['-cod-'] + values['-ddd-'] + values['-num-'])
+        else:
+            sg.popup('Please fill the fields only with numbers')
 # close the window
 window.close()
