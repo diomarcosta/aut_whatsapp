@@ -13,4 +13,4 @@ event, values = window.read()
 #close the window
 window.close()
 
-wb.open("https://wa.me/5583" + str(values[0]))
+wb.open("https://wa.me/55" + str(values[0]))
