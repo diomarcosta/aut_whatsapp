@@ -4,13 +4,10 @@ import webbrowser as wb
 sg.theme('DarkGray')
 # define the layout
 
+sg.popup('Tutorial\n\nFill the field with the complete number, only with numbers\n\n'
+        'Ex.: Brazil: 5583912344321 > Country cod, DDD, number with 9\n\nEnjoy!')
 layout = [[sg.Text('Start WhastApp chat')],
-          [sg.Text(
-              'Country code', size=14), sg.InputText(size=5, key='-cod-')],
-          [sg.Text(
-              'DDD',  size=14), sg.InputText(size=5, key='-ddd-')],
-          [sg.Text(
-              'Number'), sg.InputText(size=15, key='-num-')],
+          [sg.Text('Number'), sg.InputText(size=25, key='-num-')],
           [sg.Button('Open chat'), sg.Button('Cancel')]]
 
 # Create the Window
@@ -21,13 +18,13 @@ while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'Cancel':  # if user closes window or clicks cancel
         break
-    elif values['-cod-'] == '' or values['-ddd-'] == '' or values['-num-'] == '':
-        sg.popup('Please fill all the fields!')
+    elif values['-num-'] == '':
+        sg.popup('Please fill the field!')
     else:
-        if values['-cod-'].isdigit() and values['-ddd-'].isdigit() and values['-num-'].isdigit():
+        if values['-num-'].isdigit():
             wb.open("https://wa.me/" +
-                    values['-cod-'] + values['-ddd-'] + values['-num-'])
+                    values['-num-'])
         else:
-            sg.popup('Please fill the fields only with numbers')
+            sg.popup('Please fill the field only with numbers')
 # close the window
 window.close()
